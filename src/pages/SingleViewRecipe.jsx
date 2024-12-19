@@ -22,7 +22,7 @@ const SingleView = () => {
     }, [id]);
 
     return (
-        <section className='flex items-center justify-center'>
+        <section className='flex items-center justify-center py-10'>
             <Container>
                 <Row >
                     <div className="navigate-button mb-9 text-center flex items-center justify-center gap-x-3">

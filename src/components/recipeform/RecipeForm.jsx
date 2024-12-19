@@ -29,7 +29,6 @@ const RecipeForm = () => {
     const RecipeSubmit = (e) => {
         e.preventDefault()
         dispatch(AddRecipeThunk(RecipeInput))
-        console.log(RecipeInput)
     }
 
     const handleImage = (e) => {

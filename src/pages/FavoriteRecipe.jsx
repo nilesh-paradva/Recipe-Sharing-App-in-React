@@ -17,7 +17,7 @@ const FavoriteRecipe = () => {
 
     useEffect(() => {
         dispatch(GetFavoriteRecipeThunk())
-    }, [])
+    }, [dispatch])
 
 
     if (isloading) {
@@ -96,8 +96,8 @@ const FavoriteRecipe = () => {
                                         </div>
                                     </div>
                                     <div className="delete-btn text-center pt-3">
-                                        <IconButton aria-label="delete" size="large">
-                                            <DeleteIcon fontSize="inherit" className="!text-red-900" onClick={() => dispatch(DeleteFavoriteRecipeThunk(recipe.id))} />
+                                        <IconButton aria-label="delete" size="large" onClick={() => dispatch(DeleteFavoriteRecipeThunk(recipe.id))}>
+                                            <DeleteIcon fontSize="inherit" className="!text-red-900" />
                                         </IconButton>
                                     </div>
                                 </div>

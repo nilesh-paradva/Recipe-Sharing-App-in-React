@@ -1,4 +1,4 @@
-import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, setDoc } from "firebase/firestore"
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, setDoc, query, where, getFirestore  } from "firebase/firestore"
 import { RecipeDb } from "../../firebase";
 
 export const AddRecipe = () => {
@@ -36,8 +36,7 @@ export const UpdateRecipe = (data) => {
 
 export const FavoriteRecipe = () => {
     return {
-        type: "FAVORITE_RECIPE",
-        // payload: data
+        type: "ADD_FAVORITE_RECIPE",
     }
 }
 
@@ -91,9 +90,7 @@ export const DeleteRecipeThunk = (id) => async dispatch => {
 }
 
 export const SingleRecipeThunk = (id) => async dispatch => {
-
     dispatch(loading());
-
     try {
         const rec = await getDoc(doc(RecipeDb, "recipes", `${id}`));
         let getData = rec.data();
@@ -111,7 +108,6 @@ export const UpdateRecipeThunk = (data) => async dispatch => {
     try {
         await setDoc(doc(RecipeDb, "recipes", `${data.id}`), data);
         dispatch(UpdateRecipe(data));
-        console.log(" updateRec: ", data);
     } catch (err) {
         console.error(err);
     }
@@ -119,22 +115,25 @@ export const UpdateRecipeThunk = (data) => async dispatch => {
 
 export const AddFavoriteRecipeThunk = (recipe) => async dispatch => {
     try {
-        await addDoc(collection(RecipeDb, "FavoriteRecipe"), recipe);
-        dispatch(FavoriteRecipe());
+        const q = query(collection(RecipeDb, "FavoriteRecipe"),where("id", "==", recipe.id));
+        const querySnapshot = await getDocs(q);
+        if (!querySnapshot.empty) {
+            alert('This recipe already exists in your favorites!');
+        } else {
+            await addDoc(collection(RecipeDb, "FavoriteRecipe"), recipe);
+            dispatch(FavoriteRecipe());
+        }
     } catch (err) {
         console.error(err);
     }
 };
 
+
 export const GetFavoriteRecipeThunk = () => async dispatch => {
-
     dispatch(loading());
-
     try {
         const recs = (await getDocs(collection(RecipeDb, "FavoriteRecipe"))).docs.map(doc => ({ ...doc.data(), id: doc.id }));
         dispatch(GetFavoriteRecipe(recs));
-        console.log("favorite recipe get", recs);
-        
     } catch (err) {
         console.error("Error get recipes:", err);
     }
