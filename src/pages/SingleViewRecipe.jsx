@@ -80,11 +80,9 @@ const SingleView = () => {
                                     {/* Cooking Steps Section */}
                                     <div>
                                         <h2 className="text-lg font-bold text-green-600 border-b border-green-300 pb-2">COOKING STEPS</h2>
-                                        <ol className="list-decimal list-inside text-sm text-gray-700 mt-2 space-y-2">
-                                            <li>
-                                                {recipe.instructions}
-                                            </li>
-                                        </ol>
+                                        <ul className="list-decimal list-inside text-sm text-gray-700 mt-2 space-y-2">
+                                            <li>{recipe.instructions}</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>

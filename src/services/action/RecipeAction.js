@@ -59,6 +59,8 @@ export const loading = () => {
     }
 }
 
+// thunk
+
 export const AddRecipeThunk = data => async dispatch => {
     try {
         await addDoc(collection(RecipeDb, "recipes"), data);

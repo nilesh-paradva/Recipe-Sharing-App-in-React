@@ -26,9 +26,6 @@ const RecipeReducer = (state = InitializeState, action) => {
         case 'GET_FAVORITE_RECIPE':
             return { ...state, favoriteRecipe: action.payload, isloading: false };
 
-        // case 'DELETE_FAVORITE_RECIPE'
-
-
         case 'LOADING':
             return { ...state, isloading: true };
 
