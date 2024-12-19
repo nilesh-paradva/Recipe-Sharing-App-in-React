@@ -2,6 +2,9 @@ import React from 'react';
 import Logo from '../../assets/images/logo/logo.png'
 import { Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Badge from '@mui/material/Badge';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { IconButton } from '@mui/material';
 
 const Header = () => {
     return (
@@ -31,6 +34,12 @@ const Header = () => {
                         <div className="header-actions flex items-center justify-end gap-x-3">
                             <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Sign&nbsp;In</button>
                             <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Sign&nbsp;Up</button>
+                            <IconButton aria-label="cart">
+
+                            <Badge badgeContent={4} color="primary" className='relative z-50 cursor-pointer'>
+                                <FavoriteIcon color="action" />
+                            </Badge>
+                            </IconButton>
                         </div>
                     </Col>
                 </Row>

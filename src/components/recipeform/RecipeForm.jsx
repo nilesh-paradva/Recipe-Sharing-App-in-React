@@ -13,6 +13,7 @@ const RecipeForm = () => {
 
     const [RecipeInput, setRecipeInput] = useState({
         recipeName: '',
+        recipeDescription : '',
         cuisineType: '',
         category: '',
         ingredients: '',
@@ -71,6 +72,12 @@ const RecipeForm = () => {
                                         <div>
                                             <label htmlFor="recipeName" className="block text-sm font-medium text-gray-700">Recipe Name</label>
                                             <input type="text" id="recipeName" name='recipeName' value={RecipeInput.recipeName} className="mt-1 block w-full p-2 border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 outline-none border-2" placeholder="Enter recipe name" onChange={(e) => setRecipeInput({ ...RecipeInput, recipeName: e.target.value })} />
+                                        </div>
+
+                                        {/* Recipe short Description */}
+                                        <div>
+                                            <label htmlFor="recipeName" className="block text-sm font-medium text-gray-700">Recipe Short Description</label>
+                                            <input type="text" id="recipeDescription" name='recipeDescription' value={RecipeInput.recipeDescription} className="mt-1 block w-full p-2 border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 outline-none border-2" placeholder="Enter recipe Short Description" onChange={(e) => setRecipeInput({ ...RecipeInput, recipeDescription: e.target.value })} />
                                         </div>
 
                                         {/* Cuisine Type */}

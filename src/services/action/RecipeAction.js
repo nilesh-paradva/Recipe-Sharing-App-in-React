@@ -34,6 +34,26 @@ export const UpdateRecipe = (data) => {
     }
 }
 
+export const FavoriteRecipe = () => {
+    return {
+        type: "FAVORITE_RECIPE",
+        // payload: data
+    }
+}
+
+export const GetFavoriteRecipe = (data) => {
+    return {
+        type: "GET_FAVORITE_RECIPE",
+        payload: data
+    }
+}
+
+export const DeleteFavoriteRecipe = () => {
+    return {
+        type: "DELETE_FAVORITE_RECIPE"
+    }
+}
+
 export const loading = () => {
     return {
         type: "LOADING"
@@ -62,37 +82,69 @@ export const GetRecipeThunk = () => async dispatch => {
 };
 
 export const DeleteRecipeThunk = (id) => async dispatch => {
-    try{
+    try {
         await deleteDoc(doc(RecipeDb, "recipes", `${id}`));
         dispatch(GetRecipeThunk());
-    } catch(err){
+    } catch (err) {
         console.error(err);
     }
 }
 
 export const SingleRecipeThunk = (id) => async dispatch => {
-    
+
     dispatch(loading());
 
-    try{
+    try {
         const rec = await getDoc(doc(RecipeDb, "recipes", `${id}`));
         let getData = rec.data();
         getData.id = rec.id;
 
         dispatch(SingleRecipe(getData));
-        console.log(" getData: ",getData);
+        console.log(" getData: ", getData);
 
-    } catch(err){
+    } catch (err) {
         console.error(err);
     }
 }
 
 export const UpdateRecipeThunk = (data) => async dispatch => {
-    try{
+    try {
         await setDoc(doc(RecipeDb, "recipes", `${data.id}`), data);
         dispatch(UpdateRecipe(data));
-        console.log(" updateRec: ",data);
-    } catch(err){
+        console.log(" updateRec: ", data);
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+export const AddFavoriteRecipeThunk = (recipe) => async dispatch => {
+    try {
+        await addDoc(collection(RecipeDb, "FavoriteRecipe"), recipe);
+        dispatch(FavoriteRecipe());
+    } catch (err) {
+        console.error(err);
+    }
+};
+
+export const GetFavoriteRecipeThunk = () => async dispatch => {
+
+    dispatch(loading());
+
+    try {
+        const recs = (await getDocs(collection(RecipeDb, "FavoriteRecipe"))).docs.map(doc => ({ ...doc.data(), id: doc.id }));
+        dispatch(GetFavoriteRecipe(recs));
+        console.log("favorite recipe get", recs);
+        
+    } catch (err) {
+        console.error("Error get recipes:", err);
+    }
+};
+
+export const DeleteFavoriteRecipeThunk = (id) => async dispatch => {
+    try {
+        await deleteDoc(doc(RecipeDb, "FavoriteRecipe", `${id}`));
+        dispatch(GetFavoriteRecipeThunk());
+    } catch (err) {
         console.error(err);
     }
 }

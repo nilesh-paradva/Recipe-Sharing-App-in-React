@@ -4,6 +4,7 @@ import EditRecipe from './pages/EditRecipe'
 import ViewRecipe from './pages/ViewRecipe'
 import SingleView from './pages/SingleViewRecipe'
 import RecipeForm from './components/recipeform/RecipeForm'
+import FavoriteRecipe from './pages/FavoriteRecipe'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 
@@ -18,6 +19,7 @@ function App() {
           <Route path="/EditRecipe/:id" element={<EditRecipe />} />
           <Route path="/ViewRecipe" element={<ViewRecipe />} />
           <Route path="/SingleViewRecipe/:id" element={<SingleView />} />
+          <Route path='/favoriterecipe' element={<FavoriteRecipe />} />
         </Routes>
       </Router>
     </>

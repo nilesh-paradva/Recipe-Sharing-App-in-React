@@ -22,7 +22,7 @@ const SingleView = () => {
     }, [id]);
 
     return (
-        <section className='h-screen flex items-center justify-center'>
+        <section className='flex items-center justify-center'>
             <Container>
                 <Row >
                     <div className="navigate-button mb-9 text-center flex items-center justify-center gap-x-3">
@@ -41,7 +41,8 @@ const SingleView = () => {
                                 {/* Title and Subtitle */}
                                 <div className="text-center">
                                     <h1 className="text-2xl font-bold text-green-600">{recipe.recipeName}</h1>
-                                    <p className="text-gray-600 italic">Delicious Pasta from Classic Spaghetti</p>
+                                    <p className="text-gray-600 italic">{recipe.recipeDescription}</p>
+
                                 </div>
 
                                 {/* Icons Section */}
@@ -50,7 +51,7 @@ const SingleView = () => {
                                         <p className="text-xl font-bold flex items-center justify-center flex-col"><span><CookieIcon className="text-green-600 !text-3xl" /></span>{recipe.difficulty}</p>
                                     </div>
                                     <div className="text-center">
-                                        <p className="text-xl font-bold flex items-center justify-center flex-col"><span><AccessTimeIcon className="text-green-600 !text-3xl" /></span>{recipe.cookingTime}</p>
+                                        <p className="text-xl font-bold flex items-center justify-center flex-col"><span><AccessTimeIcon className="text-green-600 !text-3xl" /></span>{recipe.cookingTime} min</p>
                                     </div>
                                     <div className="text-center">
                                         <p className="text-xl font-bold flex items-center justify-center flex-col"><span><CategoryIcon className="text-green-600 !text-3xl" /></span>{recipe.category}</p>
