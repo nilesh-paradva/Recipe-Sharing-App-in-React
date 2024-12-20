@@ -26,6 +26,13 @@ export const GetUserAct = (data) => {
     }
 }
 
+export const UserSignAct = () => {
+    return {
+        type: "USER_SIGN_IN"
+    }
+}
+
+
 export const loading = () => {
     return{
         type: "LOADING"
@@ -57,3 +64,18 @@ export const GetUserThunk = () => async dispatch => {
         console.error("Error get recipes:", err);
     }
 };
+
+export const UserSignInThunk = data => async dispatch => {
+    console.log("data", data);
+    const recs = (await getDocs(collection(RecipeDb, "users"))).docs.map(doc => ({ ...doc.data(), id: doc.id }));
+
+    for (let i = 0; i < recs.length; i++) {
+        if (recs[i].Email === data.email && recs[i].Password === data.password) {    
+            dispatch(UserSignAct(recs[i]));
+            console.log("recs[i]", recs[i]);
+
+            return true;
+        }
+    }
+    return false;
+}

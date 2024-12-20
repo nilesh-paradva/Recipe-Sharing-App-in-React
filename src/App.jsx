@@ -5,7 +5,7 @@ import ViewRecipe from './pages/ViewRecipe'
 import SingleView from './pages/SingleViewRecipe'
 import RecipeForm from './components/recipeform/RecipeForm'
 import FavoriteRecipe from './pages/FavoriteRecipe'
-import SignUp from './components/loginpage/signUp'
+import SignUp from './components/loginpage/SignUp'
 import SignIn from './components/loginpage/SignIn'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'

@@ -4,13 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import CloseIcon from '@mui/icons-material/Close';
 import { SignUpThunk, toggleModal, toggleModalSignIn } from '../../services/action/UsersAction';
 import { Link, useNavigate } from 'react-router-dom';
-// import { toggleModal } from '../../services/action/RecipeAction';
-// import { openModal, closeModal } from '../../services/action/HeaderAppActions';
 
 const SignUp = () => {
     const { isSignUp, isCreated } = useSelector((state) => state.UserReducer);
     console.log("iscreated", isCreated);
-    
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -39,11 +37,11 @@ const SignUp = () => {
         dispatch(toggleModalSignIn());
     };
 
-    useEffect(() => {
-        if(isCreated){
-            navigate('/recipeform');
-        }
-    },[isCreated])
+    // useEffect(() => {
+    //     if (isCreated) {
+    //         navigate('/recipeform');
+    //     }
+    // }, [isCreated])
 
     return (
         <>
@@ -62,19 +60,19 @@ const SignUp = () => {
                             {/* <!-- Name Field --> */}
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name*</label>
-                                <input type="text" id="name" name="name" value={signIn.Name} className="mt-1 w-full px-4 py-2 border-2 outline-none border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500" placeholder="Enter your name" onChange={(e) => setSignIn({ ...signIn, Name: e.target.value })}/>
+                                <input type="text" id="name" name="name" value={signIn.Name} className="mt-1 w-full px-4 py-2 border-2 outline-none border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500" placeholder="Enter your name" onChange={(e) => setSignIn({ ...signIn, Name: e.target.value })} />
                             </div>
 
                             {/* <!-- Email Field --> */}
                             <div>
                                 <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address*</label>
-                                <input type="email" id="email" name="email" value={signIn.Email} className="mt-1 w-full px-4 py-2 border-2 border-gray-300 rounded-lg shadow-sm outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="Enter your email" onChange={(e) => setSignIn({ ...signIn, Email: e.target.value })}/>
+                                <input type="email" id="email" name="email" value={signIn.Email} className="mt-1 w-full px-4 py-2 border-2 border-gray-300 rounded-lg shadow-sm outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="Enter your email" onChange={(e) => setSignIn({ ...signIn, Email: e.target.value })} />
                             </div>
 
                             {/* <!-- Password Field --> */}
                             <div>
                                 <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password*</label>
-                                <input type="password" id="password" name="password" value={signIn.Password} className="mt-1 w-full px-4 py-2 border-2 border-gray-300 rounded-lg shadow-sm outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="Enter your password" onChange={(e) => setSignIn({ ...signIn, Password: e.target.value })}/>
+                                <input type="password" id="password" name="password" value={signIn.Password} className="mt-1 w-full px-4 py-2 border-2 border-gray-300 rounded-lg shadow-sm outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="Enter your password" onChange={(e) => setSignIn({ ...signIn, Password: e.target.value })} />
                             </div>
 
                             {/* <!-- Confirm Password Field --> */}
@@ -92,7 +90,7 @@ const SignUp = () => {
                         {/* <!-- Already have an account? --> */}
                         <p className="text-center text-sm text-gray-600 mt-6">
                             Already have an account?
-                            <Link  className="text-blue-500 hover:underline" onClick={handleSignIn}>Sign In</Link>
+                            <Link className="text-blue-500 hover:underline" onClick={handleSignIn}>Sign In</Link>
                         </p>
                     </div>
                 </Modal.Body>

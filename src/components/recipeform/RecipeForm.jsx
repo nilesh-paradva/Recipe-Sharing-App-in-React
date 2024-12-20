@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { AddRecipeThunk } from '../../services/action/RecipeAction';
-import { use } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { GetUserThunk } from '../../services/action/UsersAction';
 
@@ -69,7 +68,7 @@ const RecipeForm = () => {
                     </div>
                     {(isloading) ? <div className="text-center">
                         <Spinner animation="border" variant="primary" />
-                        <p>Loading Recipes...</p>
+                        <p>Loading Recipes Form...</p>
                     </div> :
                         <Row className='justify-content-center'>
                             <Col lg={7}>

@@ -33,7 +33,7 @@ const SingleView = () => {
                     {!recipe ?
                         <div className="text-center">
                             <Spinner animation="border" variant="primary" />
-                            <p>Loading Recipes...</p>
+                            <p>Loading Single View Recipes...</p>
                         </div> :
 
                         <Col>
