@@ -9,7 +9,7 @@ const InitializeState = {
 const RecipeReducer = (state = InitializeState, action) => {
     switch (action.type) {
         case 'ADD_RECIPE':
-            return { ...state, isCreated: true };
+            return { ...state, isCreated: true, };
 
         case 'GET_RECIPE':
             return { ...state, recipes: action.payload, isloading: false, isCreated: false };

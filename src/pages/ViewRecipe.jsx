@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { GetUserThunk } from "../services/action/UsersAction";
+import AddRecipe from "../assets/images/loader/addRecipe2.gif"
 
 const ViewRecipe = () => {
     const { recipes, isloading } = useSelector((state) => state.RecipeReducer);
@@ -49,11 +50,10 @@ const ViewRecipe = () => {
                             <input type="text" placeholder="Search for a recipe" className="w-[50%] px-4 py-2 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-primary" value={serchRecipeItem} onChange={handleChange}/>
                         </div>
 
-                        {recipes.length === 0 ? <p>No recipes found.</p> :
-                            isloading ? <div className="text-center">
-                                <Spinner animation="border" variant="primary" />
-                                <p>Loading View Recipes...</p>
+                        {isloading ? <div className="flex items-center justify-center">
+                                <img src={AddRecipe} alt="" />
                             </div> :
+                            recipes.length === 0 ? <p className="flex items-center justify-center">No recipe Found</p>:
                                 filterRecipe.map((recipe) => (
                                     <Col lg={4} key={recipe.id}>
                                         <div className="flex flex-col rounded-lg overflow-hidden shadow-xl h-full transition-transform duration-300 hover:shadow-2xl">

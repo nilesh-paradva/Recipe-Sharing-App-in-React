@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AddRecipeThunk } from '../../services/action/RecipeAction';
 import { Link, useNavigate } from 'react-router-dom';
 import { GetUserThunk } from '../../services/action/UsersAction';
+import AddRecipe from "../../assets/images/loader/addRecipe.gif"
 
 const RecipeForm = () => {
 
@@ -66,7 +67,7 @@ const RecipeForm = () => {
                         <Link to={"/"} className="px-3 py-2 bg-primary text-white rounded-lg inline-block">Home</Link>
                         <Link to={"/ViewRecipe"} className="px-3 py-2 bg-primary text-white rounded-lg inline-block">View Recipe</Link>
                     </div>
-                    {(isloading) ? <div className="text-center">
+                    {(isloading) ? <div className="text-center flex items-center justify-center">
                         <Spinner animation="border" variant="primary" />
                         <p>Loading Recipes Form...</p>
                     </div> :
