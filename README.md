@@ -1,5 +1,7 @@
 <h1 align="center">Recipe Sharing App</h1>
 
+[![Watch the video](https://github.com/user-attachments/assets/5e03b25c-f837-4266-8b30-6fef47ffa0df)](https://github.com/user-attachments/assets/5e03b25c-f837-4266-8b30-6fef47ffa0df)
+
 <h3>Objective:-</h3>
 <p>Build a web application where users can add, view, update, and delete recipes using React and Firebase Firestore. The app should focus on CRUD operations and seamless Firestore integration.</p>
 
