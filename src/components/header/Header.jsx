@@ -32,11 +32,11 @@ const Header = () => {
     return (
         <header className="fixed shadow top-0 w-full z-50 py-3">
             <Container className="container mx-auto max-w-screen-xl">
-                <Row className="items-center">
+                <Row className="items-center flex-col gap-y-4">
                     {/* Logo Section */}
-                    <Col lg={2}>
+                    <Col lg={2} md={3} xs={5}>
                         <div className="logo">
-                            <img src={Logo} alt="Logo" className="w-full h-auto" />
+                            <img src={Logo} alt="Logo" className="img-fluid " />
                         </div>
                     </Col>
 
@@ -53,7 +53,7 @@ const Header = () => {
 
                     {/* Optional Section (Search, Icons, etc.) */}
                     <Col lg={2}>
-                        <div className="header-actions flex items-center justify-end gap-x-3">
+                        <div className="header-actions flex items-center justify-center gap-x-3">
                             {/* <button className="bg-[#4b964b] text-white px-4 py-2 rounded-md hover:bg-[#346534] transition duration-200" onClick={handleToggleSignIn}>Sign&nbsp;In</button> */}
 {/*                             <button className="bg-[#316562] text-white px-4 py-2 rounded-md hover:bg-[#234847] transition duration-200" onClick={handleToggleModal}>Sign&nbsp;Up</button> */}
                             <Tooltip title='Favorite Recipe'>

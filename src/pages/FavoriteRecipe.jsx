@@ -40,7 +40,7 @@ const FavoriteRecipe = () => {
             <section className=' flex items-center justify-center py-8'>
                 <Container>
                     <Row className="gap-y-6">
-                        <div className="navigate-button mb-9 text-center flex items-center justify-center gap-x-3">
+                        <div className="navigate-button mb-9 text-center flex items-center justify-center gap-x-3 flex-col flex-lg-row gap-y-4">
                             <Link to={"/"} className="px-3 py-2 bg-primary text-white rounded-lg inline-block">Home</Link>
                             <Link to={"/recipeform"} className="px-3 py-2 bg-primary text-white rounded-lg inline-block">Add Recipe</Link>
                             <Link to={"/ViewRecipe"} className="px-3 py-2 bg-primary text-white rounded-lg inline-block">View Recipe</Link>
@@ -60,7 +60,7 @@ const FavoriteRecipe = () => {
                                         </div>
 
                                         {/* Icons Section */}
-                                        <div className="flex justify-around text-gray-600 mb-16 mt-5">
+                                        <div className="flex justify-around text-gray-600 mb-16 mt-5 flex-col gap-y-3 flex-lg-row">
                                             <div className="text-center">
                                                 <p className="text-xl font-bold flex items-center justify-center flex-col"><span><CookieIcon className="text-green-600 !text-3xl" /></span>{recipe.difficulty}</p>
                                             </div>
@@ -79,12 +79,13 @@ const FavoriteRecipe = () => {
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                                             {/* Ingredients Section */}
                                             <div>
-                                                <div className="tootip flex items-center justify-center">
+                                                <div className="tootip  justify-center flex-col">
                                                     <Tooltip title={recipe.ingredients} placement="left">
                                                         <IconButton className='hover:!bg-transparent !text-center'>
                                                             <h2 className="text-lg font-bold text-green-600 pb-2 !hover:none inline-block">INGREDIENTS</h2>
                                                         </IconButton>
                                                     </Tooltip>
+                                                    <p className=" d-lg-none">{recipe.ingredients}</p>
                                                 </div>
                                                 <div className="mt-6">
                                                     <img src={recipe.recipeimage} alt="Italian Pasta" className="w-full rounded-lg shadow-md" />

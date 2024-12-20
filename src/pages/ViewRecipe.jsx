@@ -39,7 +39,7 @@ const ViewRecipe = () => {
     return (
         <>
             <section className="py-20">
-                <Container className="w-[1220px]">
+                <Container >
                     <Row>
                         <div className="navigate-button mb-3 text-center flex items-center justify-center gap-x-3">
                             <Link to={"/"} className="px-3 py-2 bg-primary text-white rounded-lg inline-block">Home</Link>
@@ -47,15 +47,15 @@ const ViewRecipe = () => {
                         </div>
                         <div className="searchRecipe mb-4">
                             <label htmlFor="search " className="block mb-1 ">Search Recipe</label>
-                            <input type="text" placeholder="Search for a recipe" className="w-[50%] px-4 py-2 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-primary" value={serchRecipeItem} onChange={handleChange}/>
+                            <input type="text" placeholder="Search for a recipe" className="w-[50%] px-4 py-2 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-primary" value={serchRecipeItem} onChange={handleChange} />
                         </div>
 
                         {isloading ? <div className="flex items-center justify-center">
-                                <img src={AddRecipe} alt="" />
-                            </div> :
-                            recipes.length === 0 ? <p className="flex items-center justify-center">No recipe Found</p>:
+                            <img src={AddRecipe} alt="" />
+                        </div> :
+                            recipes.length === 0 ? <p className="flex items-center justify-center">No recipe Found</p> :
                                 filterRecipe.map((recipe) => (
-                                    <Col lg={4} key={recipe.id}>
+                                    <Col lg={4} md={6} key={recipe.id}>
                                         <div className="flex flex-col rounded-lg overflow-hidden shadow-xl h-full transition-transform duration-300 hover:shadow-2xl">
                                             <img className="h-48 w-full transition-transform duration-300 hover:scale-110" src={recipe.recipeimage || 'https://via.placeholder.com/150'} alt={recipe.recipeName || 'Recipe Image'} />
 

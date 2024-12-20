@@ -48,7 +48,7 @@ const SingleView = () => {
                                 </div>
 
                                 {/* Icons Section */}
-                                <div className="flex justify-around text-gray-600 mb-16 mt-5">
+                                <div className="flex justify-around text-gray-600 mb-16 mt-5 ">
                                     <div className="text-center">
                                         <p className="text-xl font-bold flex items-center justify-center flex-col"><span><CookieIcon className="text-green-600 !text-3xl" /></span>{recipe.difficulty}</p>
                                     </div>
