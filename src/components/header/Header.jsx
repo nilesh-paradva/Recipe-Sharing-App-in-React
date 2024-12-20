@@ -55,7 +55,7 @@ const Header = () => {
                     <Col lg={2}>
                         <div className="header-actions flex items-center justify-end gap-x-3">
                             <button className="bg-[#4b964b] text-white px-4 py-2 rounded-md hover:bg-[#346534] transition duration-200" onClick={handleToggleSignIn}>Sign&nbsp;In</button>
-                            <button className="bg-[#316562] text-white px-4 py-2 rounded-md hover:bg-[#234847] transition duration-200" onClick={handleToggleModal}>Sign&nbsp;Up</button>
+{/*                             <button className="bg-[#316562] text-white px-4 py-2 rounded-md hover:bg-[#234847] transition duration-200" onClick={handleToggleModal}>Sign&nbsp;Up</button> */}
                             <Tooltip title='Favorite Recipe'>
                                 <IconButton aria-label="cart" className='hover:!bg-[#375a37]' onClick={() => navigate('/favoriterecipe')}>
                                     <Badge badgeContent={FavoriteRecipeLength == 0 ? "0" : FavoriteRecipeLength} color="primary" className='relative z-50 cursor-pointer'>
