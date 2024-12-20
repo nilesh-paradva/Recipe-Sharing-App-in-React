@@ -46,11 +46,11 @@ const SignUp = () => {
     return (
         <>
             <Modal show={isSignUp} backdrop="static" keyboard={false}>
-                <Modal.Header
+{/*                 <Modal.Header
                     onClick={handleToggleModal}
                     className={`py-3 px-3 flex items-center justify-center !border-b-0`}>
                     <CloseIcon className="cursor-pointer" />
-                </Modal.Header>
+                </Modal.Header> */}
 
                 <Modal.Body className={`p-0 flex items-center justify-center py-3`}>
                     <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
