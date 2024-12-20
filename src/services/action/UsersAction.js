@@ -39,6 +39,12 @@ export const loading = () => {
     }
 }
 
+export const SignClose = () =>{
+    return{
+        type: "SIGN_CLOSE"
+    }
+}
+
 // thunk
 
 export const SignUpThunk = data => async dispatch => {

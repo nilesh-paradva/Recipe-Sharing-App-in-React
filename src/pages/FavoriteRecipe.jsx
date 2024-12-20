@@ -9,6 +9,7 @@ import CookieIcon from '@mui/icons-material/Cookie';
 import CategoryIcon from '@mui/icons-material/Category';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { GetUserThunk } from "../services/action/UsersAction";
 
 const FavoriteRecipe = () => {
     const { favoriteRecipe, isloading } = useSelector((state) => state.RecipeReducer);
@@ -17,6 +18,7 @@ const FavoriteRecipe = () => {
 
     useEffect(() => {
         dispatch(GetFavoriteRecipeThunk())
+        dispatch(GetUserThunk());
     }, [dispatch])
 
 

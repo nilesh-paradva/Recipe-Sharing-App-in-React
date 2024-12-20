@@ -16,11 +16,14 @@ const UserReducer = (state = InitializeState, action) => {
         case 'SIGN_IN':
             return { ...state, isCreated: true, isloading: false };
 
+        case 'SIGN_CLOSE':
+            return { ...state, isSignIn : false };
+
         case 'GET_USER':
             return { ...state, users: action.payload, isloading: false, isSignIn: false };
 
         case "USER_SIGN_IN":
-            return { ...state, isloading: false, isSignInSuc: true };
+            return { ...state, isloading: false, isSignInSuc: true, isCreated: true };
 
         case "TOGGLE_MODAL_SIGN_UP":
             return { ...state, isSignUp: !state.isSignUp, isCreated: false, isSignIn: false, isloading: false };

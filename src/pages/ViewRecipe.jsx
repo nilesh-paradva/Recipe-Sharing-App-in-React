@@ -5,6 +5,7 @@ import { AddFavoriteRecipeThunk, DeleteRecipeThunk, GetRecipeThunk, SingleRecipe
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { GetUserThunk } from "../services/action/UsersAction";
 
 const ViewRecipe = () => {
     const { recipes, isloading } = useSelector((state) => state.RecipeReducer);
@@ -17,9 +18,9 @@ const ViewRecipe = () => {
         navigate('/favoriterecipe');
     }
 
-
     useEffect(() => {
         dispatch(GetRecipeThunk());
+        dispatch(GetUserThunk());
     }, []);
 
     if (isloading) {
