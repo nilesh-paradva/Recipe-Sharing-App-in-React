@@ -6,8 +6,7 @@ import { SignUpThunk, toggleModal, toggleModalSignIn } from '../../services/acti
 import { Link, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
-    const { isSignUp, isCreated } = useSelector((state) => state.UserReducer);
-    console.log("iscreated", isCreated);
+    const { isSignUp} = useSelector((state) => state.UserReducer);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -30,18 +29,11 @@ const SignUp = () => {
             Email: '',
             Password: ''
         })
-        console.log("sign form ", signIn);
     }
 
     const handleSignIn = () => {
         dispatch(toggleModalSignIn());
     };
-
-    // useEffect(() => {
-    //     if (isCreated) {
-    //         navigate('/recipeform');
-    //     }
-    // }, [isCreated])
 
     return (
         <>

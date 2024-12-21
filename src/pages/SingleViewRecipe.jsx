@@ -13,7 +13,6 @@ import { GetUserThunk } from '../services/action/UsersAction';
 const SingleView = () => {
 
     const { recipe } = useSelector(state => state.RecipeReducer);
-    console.log("single recipe: ", recipe);
 
     const dispatch = useDispatch();
     const { id } = useParams();
@@ -27,7 +26,7 @@ const SingleView = () => {
         <section className='flex items-center justify-center py-10'>
             <Container>
                 <Row >
-                    <div className="navigate-button mb-9 text-center flex items-center justify-center gap-x-3">
+                    <div className="navigate-button mb-9 text-center flex items-center justify-center flex-col flex-lg-row gap-y-3 gap-x-3">
                         <Link to={"/"} className="px-3 py-2 bg-primary text-white rounded-lg inline-block">Home</Link>
                         <Link to={"/recipeform"} className="px-3 py-2 bg-primary text-white rounded-lg inline-block">Add Recipe</Link>
                         <Link to={"/ViewRecipe"} className="px-3 py-2 bg-primary text-white rounded-lg inline-block">View Recipe</Link>
@@ -48,7 +47,7 @@ const SingleView = () => {
                                 </div>
 
                                 {/* Icons Section */}
-                                <div className="flex justify-around text-gray-600 mb-16 mt-5 ">
+                                <div className="flex justify-around text-gray-600 mb-16 mt-5 flex-col gap-y-4 flex-lg-row">
                                     <div className="text-center">
                                         <p className="text-xl font-bold flex items-center justify-center flex-col"><span><CookieIcon className="text-green-600 !text-3xl" /></span>{recipe.difficulty}</p>
                                     </div>

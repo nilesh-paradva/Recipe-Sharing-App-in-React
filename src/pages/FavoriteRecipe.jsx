@@ -14,26 +14,12 @@ import AddRecipe from "../assets/images/loader/addRecipe.gif"
 
 const FavoriteRecipe = () => {
     const { favoriteRecipe, isloading } = useSelector((state) => state.RecipeReducer);
-    console.log("faviorit recipe ", favoriteRecipe);
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(GetFavoriteRecipeThunk())
         dispatch(GetUserThunk());
     }, [dispatch])
-
-
-    // if (isloading) {
-    //     return (
-    //         <section className="py-20">
-    //             <Container>
-    //                 <div className="flex items-center justify-center">
-    //                     <img src={AddRecipe} alt="" />
-    //                 </div>
-    //             </Container>
-    //         </section>
-    //     );
-    // }
 
     return (
         <>

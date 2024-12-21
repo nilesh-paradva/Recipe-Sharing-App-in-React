@@ -39,7 +39,7 @@ const ViewRecipe = () => {
     return (
         <>
             <section className="py-20">
-                <Container >
+                <div className="container-sm">
                     <Row>
                         <div className="navigate-button mb-3 text-center flex items-center justify-center gap-x-3">
                             <Link to={"/"} className="px-3 py-2 bg-primary text-white rounded-lg inline-block">Home</Link>
@@ -106,7 +106,7 @@ const ViewRecipe = () => {
                                 ))
                         }
                     </Row>
-                </Container>
+                </div>
             </section>
         </>
     )

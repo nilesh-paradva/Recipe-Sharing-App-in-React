@@ -104,8 +104,6 @@ export const SingleRecipeThunk = (id) => async dispatch => {
         getData.id = rec.id;
 
         dispatch(SingleRecipe(getData));
-        console.log(" getData: ", getData);
-
     } catch (err) {
         console.error(err);
     }
