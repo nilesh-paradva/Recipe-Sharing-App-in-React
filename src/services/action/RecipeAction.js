@@ -76,10 +76,9 @@ export const GetRecipeThunk = () => async dispatch => {
 
     try {
         const recs = (await getDocs(collection(RecipeDb, "recipes"))).docs.map(doc => ({ ...doc.data(), id: doc.id }));
-        // dispatch(GetRecipe(recs));
         setTimeout(() => {
             dispatch(GetRecipe(recs));
-        }, 4000);
+        }, 2000);
     } catch (err) {
         console.error("Error get recipes:", err);
     }
@@ -95,14 +94,10 @@ export const DeleteRecipeThunk = (id) => async dispatch => {
 }
 
 export const SingleRecipeThunk = (id) => async dispatch => {
-
-    // dispatch(loading());
-
     try {
         const rec = await getDoc(doc(RecipeDb, "recipes", `${id}`));
         let getData = rec.data();
         getData.id = rec.id;
-
         dispatch(SingleRecipe(getData));
     } catch (err) {
         console.error(err);
@@ -140,10 +135,9 @@ export const GetFavoriteRecipeThunk = () => async dispatch => {
 
     try {
         const recs = (await getDocs(collection(RecipeDb, "FavoriteRecipe"))).docs.map(doc => ({ ...doc.data(), id: doc.id }));
-        setTimeout(() => {
+        // setTimeout(() => {
             dispatch(GetFavoriteRecipe(recs));
-        }, 3000);
-        // dispatch(GetFavoriteRecipe(recs));
+        // }, 2000);
     } catch (err) {
         console.error("Error get recipes:", err);
     }

@@ -8,7 +8,6 @@ import CookieIcon from '@mui/icons-material/Cookie';
 import CategoryIcon from '@mui/icons-material/Category';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import { IconButton, Tooltip } from '@mui/material';
-import { GetUserThunk } from '../services/action/UsersAction';
 
 const SingleView = () => {
 
@@ -19,7 +18,6 @@ const SingleView = () => {
 
     useEffect(() => {
         dispatch(SingleRecipeThunk(id))
-        dispatch(GetUserThunk());
     }, []);
 
     return (

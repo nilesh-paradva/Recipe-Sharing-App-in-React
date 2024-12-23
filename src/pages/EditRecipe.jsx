@@ -3,8 +3,6 @@ import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { SingleRecipeThunk, UpdateRecipeThunk } from '../services/action/RecipeAction';
-import { GetUserThunk } from '../services/action/UsersAction';
-// import { AddRecipeThunk } from '../../services/action/RecipeAction';
 
 const EditRecipe = () => {
 
@@ -50,7 +48,6 @@ const EditRecipe = () => {
 
     useEffect(() => {
         dispatch(SingleRecipeThunk(id));
-        dispatch(GetUserThunk());
     }, [id]);
 
     useEffect(() => {

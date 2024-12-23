@@ -3,13 +3,10 @@ import { Col, Container, Row, Spinner } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { AddRecipeThunk } from '../../services/action/RecipeAction';
 import { Link, useNavigate } from 'react-router-dom';
-import { GetUserThunk } from '../../services/action/UsersAction';
-import AddRecipe from "../../assets/images/loader/addRecipe.gif"
 
 const RecipeForm = () => {
 
-    const { isCreated } = useSelector(state => state.RecipeReducer);
-    const { users, isloading } = useSelector(state => state.UserReducer);
+    const { isCreated , isloading} = useSelector(state => state.RecipeReducer);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -48,10 +45,6 @@ const RecipeForm = () => {
             reader.readAsDataURL(file);
         }
     };
-
-    useEffect(() => {
-        dispatch(GetUserThunk());
-    }, [])
 
     useEffect(() => {
         if (isCreated) {

@@ -15,10 +15,10 @@ function App() {
   return (
     <>
       <Router>
-        <SignUp />
-        <SignIn />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/SignIn" element={<SignIn />} />
           <Route path="/recipeform" element={<RecipeForm />} />
           <Route path="/EditRecipe/:id" element={<EditRecipe />} />
           <Route path="/ViewRecipe" element={<ViewRecipe />} />
