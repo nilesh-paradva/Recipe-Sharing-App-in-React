@@ -1,20 +1,20 @@
 const InitializeState = {
-    users: [],
     user: null,
-    isSignUp: false,
-    isSignIn: true,
-    isSignInSuc : false,
-    isCreated: false,
-    isloading: false
+    isCreated: false
 }
 
-const UserReducer = (state = InitializeState, action) => {
+const SignUpReducer = (state = InitializeState, action) => {
     switch (action.type) {
         
+        case 'SIGNUP_SUCCESS':
+            return { ...state, user: action.payload, isCreated: true };
+
+        case 'SIGNUP_FAILURE':
+            return { ...state, user: null };
 
         default:
             return state;
     }
 }
 
-export default UserReducer
+export default SignUpReducer

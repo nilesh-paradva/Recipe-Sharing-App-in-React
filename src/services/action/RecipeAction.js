@@ -105,6 +105,9 @@ export const SingleRecipeThunk = (id) => async dispatch => {
 }
 
 export const UpdateRecipeThunk = (data) => async dispatch => {
+
+    dispatch(loading());
+
     try {
         await setDoc(doc(RecipeDb, "recipes", `${data.id}`), data);
         dispatch(UpdateRecipe(data));

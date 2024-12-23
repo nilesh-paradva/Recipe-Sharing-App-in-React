@@ -1,9 +1,10 @@
 import { combineReducers } from "redux";
 import RecipeReducer from "./RecipeReducer";
-import UserReducer from "./SignUpReducer";
+import SignUpReducer from "./SignUpReducer";
 
 const RootReducer = combineReducers({
     RecipeReducer,
+    SignUpReducer,
 })
 
 export default RootReducer

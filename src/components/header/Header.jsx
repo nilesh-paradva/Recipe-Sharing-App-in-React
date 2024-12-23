@@ -11,7 +11,7 @@ import { GetFavoriteRecipeThunk} from '../../services/action/RecipeAction';
 const Header = () => {
 
     const {favoriteRecipe, } = useSelector(state => state.RecipeReducer);
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const FavoriteRecipeLength = favoriteRecipe.length
 
@@ -21,7 +21,7 @@ const Header = () => {
     
 
     return (
-        <header className="fixed shadow top-0 w-full z-50 py-3">
+        <header className="fixed top-0 w-full z-50 py-3">
             <Container className="container mx-auto max-w-screen-xl">
                 <Row className="items-center flex-col gap-y-4 flex-lg-row">
                     {/* Logo Section */}
