@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserSignUp } from "../../services/action/AuthAction";
 
 const SignUp = () => {
-    const { isCreated, error } = useSelector((state) => state.AuthReducer);
+    const { isCreated, error, isLoading } = useSelector((state) => state.AuthReducer);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -22,10 +22,6 @@ const SignUp = () => {
             alert("Passwords do not match");
             return;
         }
-        // if (!SignUp.name || !SignUp.email || !SignUp.password) {
-        //     alert("Please fill in all fields");
-        //     return;
-        // }
         dispatch(UserSignUp(SignUp));
     };
 
@@ -62,7 +58,9 @@ const SignUp = () => {
                             <label htmlFor="c_password" className="block text-sm text-white mb-1">Confirm Password*</label>
                             <input type="password" id="c_password" value={SignUp.c_password}  onChange={(e) => setSignUp({ ...SignUp, c_password: e.target.value })}  placeholder='Confirm your Password' className="w-full p-2 bg-gray-700 text-white rounded outline-none focus:!ring-2 focus:!ring-blue-500" />
                         </div>
-                        <button type="submit" className="w-full p-2 bg-blue-600 text-white rounded">Sign Up</button>
+                        <button type="submit" className="w-full p-2 bg-blue-600 text-white rounded">
+                            {isLoading ? 'Signing Up...' :   'Sign Up'}
+                        </button>
                     </form>
                     <p className="text-sm text-center text-white">Already have an account? <Link to="/SignIn" className="text-blue-400">Sign In</Link></p>
                 </div>

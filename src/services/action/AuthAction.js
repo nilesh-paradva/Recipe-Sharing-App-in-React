@@ -22,9 +22,18 @@ export const SignInSUC = (data) => {
     };
 };
 
+export const loading = () => {
+    return {
+        type: "LOADING"
+    }
+}
+
 // Thunk
 
 export const UserSignUp = (data) => async dispatch => {
+
+    dispatch(loading());
+
     createUserWithEmailAndPassword(auth, data.email, data.password)
         .then((res) => {
             dispatch(SignUpSUC(res.user));
@@ -35,6 +44,9 @@ export const UserSignUp = (data) => async dispatch => {
 };
 
 export const UserSignIn = (data) => async dispatch => {
+
+    dispatch(loading());
+
     signInWithEmailAndPassword(auth, data.email, data.password)
         .then((res) => {
             dispatch(SignInSUC(res.user));

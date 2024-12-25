@@ -5,9 +5,7 @@ import { UserSignIn } from "../../services/action/AuthAction";
 import RecipeVideo from "../../assets/video/RecipeSignIn.mp4";
 
 const SignIn = () => {
-    const { error, isCreated, user } = useSelector((state) => state.AuthReducer);
-    console.log("user", user);
-    
+    const { error, isSignIn, isLoading } = useSelector((state) => state.AuthReducer);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -20,14 +18,13 @@ const SignIn = () => {
     const handleSignIn = (e) => {
         e.preventDefault();
         dispatch(UserSignIn(SignIn));
-        // navigate("/");
     };
 
     useEffect(() => {
-        if (isCreated) {
+        if (isSignIn) {
             navigate("/");
         }
-    }, [isCreated]);
+    }, [isSignIn]);
 
     return (
         <div className="relative min-h-screen">
@@ -47,7 +44,7 @@ const SignIn = () => {
                             <label htmlFor="password" className="block text-sm text-white mb-1">Password*</label>
                             <input type="password" id="password" value={SignIn.password}  onChange={(e) => setSignIn({ ...SignIn, password: e.target.value })}  placeholder='Enter your Password' className="w-full p-2 bg-gray-700 text-white rounded outline-none focus:!ring-2 focus:!ring-blue-500" />
                         </div>
-                        <button type="submit" className="w-full p-2 bg-blue-600 text-white rounded">Sign In</button>
+                        <button type="submit" className="w-full p-2 bg-blue-600 text-white rounded">{isLoading ? "Signing In..." : "Sign In"}</button>
                     </form>
                 </div>
             </div>
