@@ -1,5 +1,6 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../Firebase";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { auth, provider } from "../../Firebase";
+import { GoogleAuthProvider } from "firebase/auth/web-extension";
 
 export const SignUpSUC = (data) => {
     return {
@@ -25,6 +26,12 @@ export const SignInSUC = (data) => {
 export const loading = () => {
     return {
         type: "LOADING"
+    }
+}
+
+export const closeSign = () => {
+    return {
+        type: "SignIn_Close"
     }
 }
 
@@ -54,4 +61,13 @@ export const UserSignIn = (data) => async dispatch => {
         .catch((error) => {
             dispatch(AuthError(error.message));
         });
+};
+
+export const SignInPopup = () => async dispatch => {
+    signInWithPopup(auth, provider).then((res) => {
+        console.log("res",res);
+        dispatch(SignInSUC(res.user));
+    }).catch((error) => {
+        dispatch(AuthError(error.message));
+    });
 };

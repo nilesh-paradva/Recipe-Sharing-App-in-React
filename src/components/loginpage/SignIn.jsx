@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { UserSignIn } from "../../services/action/AuthAction";
+import { closeSign, SignInPopup, UserSignIn } from "../../services/action/AuthAction";
 import RecipeVideo from "../../assets/video/RecipeSignIn.mp4";
+import { Button } from "@mui/material";
+import GoogleIcon from "../../assets/images/auth/google.png"
 
 const SignIn = () => {
-    const { error, isSignIn, isLoading } = useSelector((state) => state.AuthReducer);
-
+    const { error, isSignIn, isLoading, user } = useSelector((state) => state.AuthReducer);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -20,11 +21,17 @@ const SignIn = () => {
         dispatch(UserSignIn(SignIn));
     };
 
+    const SignInGoogle = () => {
+        dispatch(SignInPopup());
+    }
+
     useEffect(() => {
         if (isSignIn) {
             navigate("/");
         }
-    }, [isSignIn]);
+        dispatch(closeSign())
+        setSignIn(user)
+    }, [isSignIn, dispatch, user]);
 
     return (
         <div className="relative min-h-screen">
@@ -46,6 +53,12 @@ const SignIn = () => {
                         </div>
                         <button type="submit" className="w-full p-2 bg-blue-600 text-white rounded">{isLoading ? "Signing In..." : "Sign In"}</button>
                     </form>
+                    <p className="text-sm text-center text-white">Don't have an account? <Link to="/SignUp" className="text-blue-400">Sign Up</Link></p>
+                    <div className="signWithGoogle text-center">
+                        <Button variant="text" className="text-capitalize text-white hover:!bg-[rgba(65,64,64,0.7)] !rounded-lg px-3 py-2" onClick={SignInGoogle}>
+                            <span className="pe-2"><img src={GoogleIcon} alt="googleicon"  className="img-fluid w-8"/></span>Sign With Google
+                        </Button>
+                    </div>
                 </div>
             </div>
         </div>

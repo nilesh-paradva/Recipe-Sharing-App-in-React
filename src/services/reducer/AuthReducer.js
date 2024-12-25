@@ -11,6 +11,9 @@ const AuthReducer = (state = InitializeState, action) => {
         case 'SIGNUP_SUCCESS':
             return { ...state, user: action.payload, isCreated: true, error: null, isSignIn: false, isLoading: false };
 
+        case "SignIn_Close":
+            return { ...state, isCreated: false, error: null, isSignIn: false, isLoading: false };
+
         case 'SIGNIN_SUCCESS':
             return { ...state, user: action.payload, isCreated: false, isSignIn: true, error: null , isLoading: false};
 
