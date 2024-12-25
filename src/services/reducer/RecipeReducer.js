@@ -24,10 +24,10 @@ const RecipeReducer = (state = InitializeState, action) => {
             return { ...state, favoriteRecipe: action.payload, isloading: false, isCreated: false };
 
         case 'GET_FAVORITE_RECIPE':
-            return { ...state, favoriteRecipe: action.payload, isloading: false };
+            return { ...state, favoriteRecipe: action.payload, isloading: false, isCreated: false };
 
         case 'LOADING':
-            return { ...state, isloading: true };
+            return { ...state, isloading: true, isCreated: false };
 
         default:
             return state;

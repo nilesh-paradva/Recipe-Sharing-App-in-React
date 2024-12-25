@@ -1,5 +1,5 @@
 import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, setDoc, query, where, getFirestore  } from "firebase/firestore"
-import { RecipeDb } from "../../firebase";
+import {RecipeDb} from "../../Firebase";
 
 export const AddRecipe = () => {
     return {
@@ -134,7 +134,7 @@ export const AddFavoriteRecipeThunk = (recipe) => async dispatch => {
 
 export const GetFavoriteRecipeThunk = () => async dispatch => {
 
-    dispatch(loading());
+    // dispatch(loading());
 
     try {
         const recs = (await getDocs(collection(RecipeDb, "FavoriteRecipe"))).docs.map(doc => ({ ...doc.data(), id: doc.id }));

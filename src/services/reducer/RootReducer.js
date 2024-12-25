@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import RecipeReducer from "./RecipeReducer";
-import SignUpReducer from "./SignUpReducer";
+import AuthReducer from "./AuthReducer";
 
 const RootReducer = combineReducers({
     RecipeReducer,
-    SignUpReducer,
+    AuthReducer
 })
 
 export default RootReducer
