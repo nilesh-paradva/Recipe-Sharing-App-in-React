@@ -17,7 +17,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
 export const RecipeDb = getFirestore(app); 
 export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
